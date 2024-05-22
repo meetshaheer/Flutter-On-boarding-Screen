@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class dashboard extends StatelessWidget {
   const dashboard({super.key});
@@ -7,7 +8,12 @@ class dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.abc)),
+        leading: IconButton(
+          onPressed: () {},
+          icon: FaIcon(
+            FontAwesomeIcons.barsStaggered,
+          ),
+        ),
       ),
     );
   }
