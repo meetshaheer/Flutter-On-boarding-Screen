@@ -1,6 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:onboarding/Home/dashboardscreen.dart';
 import 'package:onboarding/constants/images.dart';
-import 'package:onboarding/on-boarding/content.dart';
+import 'package:onboarding/on-boarding%20Screen/content.dart';
 
 class onboarding extends StatefulWidget {
   const onboarding({super.key});
@@ -90,8 +92,8 @@ class _onboardingState extends State<onboarding> {
                         width: currentindex == index ? 30 : 10,
                         decoration: BoxDecoration(
                             color: currentindex == index
-                                ? Colors.deepPurple[700]
-                                : Colors.deepPurple[100],
+                                ? Colors.redAccent[700]
+                                : Colors.redAccent[100],
                             //
                             borderRadius: BorderRadius.circular(40)),
                       ),
@@ -100,6 +102,49 @@ class _onboardingState extends State<onboarding> {
                 ),
               ),
             ),
+            Positioned(
+              bottom: 92,
+              left: 20,
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => dashboard(),
+                    ),
+                  );
+                },
+                child: Text(
+                  "Skip",
+                  style: TextStyle(
+                    color: Colors.redAccent,
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+                bottom: 75,
+                right: 20,
+                child: currentindex == pageViewContent.length - 1
+                    ? ElevatedButton(
+                        style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStatePropertyAll(Colors.red[50]),
+                            shape: MaterialStatePropertyAll(CircleBorder())),
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => dashboard(),
+                            ),
+                          );
+                        },
+                        child: Icon(
+                          Icons.arrow_right_alt_rounded,
+                          color: Colors.redAccent[700],
+                        ),
+                      )
+                    : SizedBox()),
           ],
         ),
       ),
